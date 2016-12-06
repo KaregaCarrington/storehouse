@@ -1,0 +1,56 @@
+<div class="container">
+  
+  <header>
+    <div class="row">
+      <div class="col-md-4 col-sm-12">
+        <h1 class="logo">
+        <span class="primarycolor"><i class="glyphicon glyphicon-home"></i></span> store<span class="primarycolor">HOUSE</span></h1>
+      </div>
+      <div class="col-md-8 col-sm-12"> 
+        <form class="form-inline">
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" placeholder="enter email">
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" placeholder="enter password">
+          </div>
+          <button type="submit" class="btn btn-default">Come In</button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <!-- Static navbar -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">What's New</a></li>
+          <li><a href="#">Specials</a></li>
+          <li><a href="#">My Account</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <div>
+            <%= form_tag root_path, method: 'get', class: 'navbar-form' do %>
+              <p>
+                <%= text_field_tag :search, params[:search] %>
+                <%= submit_tag "Search", name: nil, class: 'btn btn-default' %>  
+              </p>
+            <% end %>   
+          </div>   
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+  </nav>
+</div>  
