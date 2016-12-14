@@ -3,11 +3,48 @@
 
   <!-- Main component for a primary marketing message or call to action -->
   <div class="jumbotron">
-    <h1>Navbar example</h1>
-    <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-    <p>
-      <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-    </p>
+  <!-- Nav tabs -->
+      <ul class="tablist" role="tablist">
+        <li role="presentation" class="active"><a href="#featured" aria-controls="featured" role="tab" data-toggle="tab">Featured Item</a></li>
+        <li role="presentation"><a href="#best" aria-controls="best" role="tab" data-toggle="tab">Best Seller</a></li>
+        <li role="presentation"><a href="#discount" aria-controls="discount" role="tab" data-toggle="tab">Summer Discount</a></li>
+        <li role="presentation"><a href="#premium" aria-controls="premium" role="tab" data-toggle="tab">Premium Product</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="featured">
+          <div class="tab-text">
+            <h2>Playstation Pro</h2>
+            <a href="#" class="btn btn-default">Read More</a>
+          </div>
+          <%= image_tag 'ps4_pro.png', class: "slide-img" %>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="best">
+          <div class="tab-text">
+            <h2>Nintendo Classic</h2>
+            <a href="#" class="btn btn-default">Read More</a>
+          </div>
+          <%= image_tag 'nes_classic.png', class: "slide-img" %>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="discount">
+          <div class="tab-text">
+            <h2>Xbox One S</h2>
+            <a href="#" class="btn btn-default">Read More</a>
+          </div>
+          <%= image_tag 'xbox_one_s.jpg', class: "slide-img" %>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="premium">
+          <div class="tab-text">
+            <h2>Nintendo Switch</h2>
+            <a href="#" class="btn btn-default">Read More</a>
+          </div>
+          <%= image_tag 'nintendo_switch.jpg', class: "slide-img" %>
+        </div>
+      </div>
   </div>
 
   <section id="products">
@@ -43,7 +80,7 @@
             <h4 class="pull-right">
               $299.99
             </h4>
-            <h4><%= link_to 'Nintendo Classic', '#' %></h4>
+            <h4><%= link_to 'Nintendo Switch', '#' %></h4>
             <p>In addition to providing single and multiplayer thrills at home, the Nintendo Switch system also enables gamers to play the same title wherever, whenever and with whomever they choose. The mobility of a handheld is now added to the power of a home gaming system to enable unprecedented new video game play styles.</p>
           </div>
         </div>
@@ -69,7 +106,7 @@
             <h4 class="pull-right">
               $59.99
             </h4>
-            <h4><%= link_to 'Xbox One S', '#' %></h4>
+            <h4><%= link_to 'Sega Master System', '#' %></h4>
             <p> SMS is a third-generation home video game console that was manufactured by Sega. It was originally released in 1985 as the Sega Mark III in Japan.</p>
           </div>
         </div>

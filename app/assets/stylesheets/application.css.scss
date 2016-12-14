@@ -55,3 +55,80 @@ header form {
   width: 130px;
   height: 130px;
 }
+
+.jumbotron {
+  overflow: auto;
+  padding: 0 !important;
+  p {
+    font-size: 15px;
+  } 
+}
+
+.tablist {
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 30%;
+  li {
+    background: #ccc;
+    list-style: none;
+    color: #666;
+    padding: 15px 10px;
+    margin-bottom: 5px;
+    width: 100%;
+    padding-left: 20px;
+    font-size: 15px;
+  }
+
+  li.active {
+    background: $primarycolor;
+    a {
+      color: white;
+    }
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+    color: gray;
+  }
+}
+
+.tab-content {
+  float: right;
+  width: 70%;
+  background: $primarycolor;
+  color: white;
+  overflow: hidden;
+  padding-top: 20px;
+  height: 275px;
+  .slide-img {
+    float: right;
+    width: 40%;
+  }
+}
+
+.tab-text {
+  float: left;
+  width: 40%;
+  margin-left: 40px;
+}
+
+@media(max-width: 768px){
+  .slide-img {
+    display: none;
+  }
+  .tab-text {
+    float: none;
+    width: 80%;
+  }
+  .navbar-form {
+    margin-left: 10px;
+  }
+}
+
+@media(max-width: 960px){
+  header form {
+    width: 100% !important;
+  }
+}
