@@ -6,20 +6,42 @@
         <h1 class="logo">
         <span class="primarycolor"><i class="glyphicon glyphicon-home"></i></span> store<span class="primarycolor">HOUSE</span></h1>
       </div>
-      <div class="col-md-8 col-sm-12"> 
-        <form class="form-inline">
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" class="form-control" placeholder="enter email">
+      <!-- where form starts -->
+      <div class="col-md-8 col-sm-12">
+
+        <% if user_signed_in? %>
+          
+          <div class="greeting">
+            WELCOME <span class="primarycolor"><%= "#{current_user.email}" %></span>
+            <div class="signout">
+              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+            </div>
           </div>
-          <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" placeholder="enter password">
-          </div>
-          <button type="submit" class="btn btn-default">Come In</button>
-        </form>
+
+        <% else %>
+
+          <form class="form-inline">
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %> 
+              <div class="form-group">
+                <%= f.label :email %>
+                <%= f.email_field :email, autofocus: true, class: 'form-control',  id: "login-field" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :password %>
+                <%= f.password_field :password, autocomplete: "off", class: 'form-control',  id:"login-field" %>
+              </div>
+                <%= f.submit "Come in!", class: 'btn actions', id: "login-field" %>
+            <% end %>
+          </form>
+        <% end %>  
       </div>
+      <!-- where form ends -->
     </div>
+    <% if !user_signed_in? %>
+      <div class="pull-right">
+        <%= render "devise/shared/links" %>
+      </div>
+    <% end %>
   </header>
 
   <!-- Static navbar -->
@@ -35,7 +57,7 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
+          <li class="active"><a href="<%= root_path %>">Home</a></li>
           <li><a href="#">What's New</a></li>
           <li><a href="#">Specials</a></li>
           <li><a href="#">My Account</a></li>

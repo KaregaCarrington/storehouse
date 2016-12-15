@@ -22,7 +22,7 @@ $primarycolor: #0383c0;
 .navbar {
   margin-bottom: 20px;
   margin-top: 30px;
-  background: linear-gradient(white, silver) primarycolor;
+  background: linear-gradient(white, silver) $primarycolor;
   border: 1px #ccc solid; 
 }
 
@@ -32,10 +32,47 @@ $primarycolor: #0383c0;
   font-weight: bold;
 }
 
+#login-field {
+  background: black;
+  color: white;
+}
+
+.btn#login-field:hover {
+  background: white;
+  color: $primarycolor;
+}
+
 .logo {
   width: 100%;
   margin: 40px 0 0 0;
   font-family: 'Oswald', sans-serif;
+}
+
+#sign-up-link {
+  float: right;
+}
+
+.signout {
+  font-size: 15px !important;
+  font-weight: normal !important;
+  padding-bottom: 0; 
+  font-family: sans-serif;
+  margin-left: 380px;
+  a {
+    color: black;
+  }
+}
+
+.signup-form {
+  background: linear-gradient(to bottom right, $primarycolor, black);
+  padding-bottom: 10px;
+  border-radius: 10px;
+  color: white;
+  width: 70%;
+}
+
+#signup-submit-button {
+  margin-top: 8px;
 }
 
 .primarycolor {
@@ -49,6 +86,14 @@ header form {
   padding: 15px;
   border-radius: 5px;
   color: #fff;
+}
+
+.greeting {
+  float: right;
+  font-weight: 700px;
+  margin-top: 50px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 30px;
 }
 
 #products img {
@@ -112,6 +157,12 @@ header form {
   float: left;
   width: 40%;
   margin-left: 40px;
+}
+
+.product-show-image {
+  width: 100%;
+  min-width: 90%;
+  padding-top: 50px;
 }
 
 @media(max-width: 768px){

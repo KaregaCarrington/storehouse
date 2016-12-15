@@ -1,129 +1,63 @@
-<div class="container">
+<div class="jumbotron">
+<!-- Nav tabs -->
+    <ul class="tablist" role="tablist">
+      <li role="presentation" class="active"><a href="#featured" aria-controls="featured" role="tab" data-toggle="tab">Featured Item</a></li>
+      <li role="presentation"><a href="#best" aria-controls="best" role="tab" data-toggle="tab">Best Seller</a></li>
+      <li role="presentation"><a href="#discount" aria-controls="discount" role="tab" data-toggle="tab">Summer Discount</a></li>
+      <li role="presentation"><a href="#premium" aria-controls="premium" role="tab" data-toggle="tab">Premium Product</a></li>
+    </ul>
 
-
-  <!-- Main component for a primary marketing message or call to action -->
-  <div class="jumbotron">
-  <!-- Nav tabs -->
-      <ul class="tablist" role="tablist">
-        <li role="presentation" class="active"><a href="#featured" aria-controls="featured" role="tab" data-toggle="tab">Featured Item</a></li>
-        <li role="presentation"><a href="#best" aria-controls="best" role="tab" data-toggle="tab">Best Seller</a></li>
-        <li role="presentation"><a href="#discount" aria-controls="discount" role="tab" data-toggle="tab">Summer Discount</a></li>
-        <li role="presentation"><a href="#premium" aria-controls="premium" role="tab" data-toggle="tab">Premium Product</a></li>
-      </ul>
-
-      <!-- Tab panes -->
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="featured">
-          <div class="tab-text">
-            <h2>Playstation Pro</h2>
-            <a href="#" class="btn btn-default">Read More</a>
-          </div>
-          <%= image_tag 'ps4_pro.png', class: "slide-img" %>
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="featured">
+        <div class="tab-text">
+          <h2>Playstation Pro</h2>
+          <a href="#" class="btn btn-default">Read More</a>
         </div>
-
-        <div role="tabpanel" class="tab-pane" id="best">
-          <div class="tab-text">
-            <h2>Nintendo Classic</h2>
-            <a href="#" class="btn btn-default">Read More</a>
-          </div>
-          <%= image_tag 'nes_classic.png', class: "slide-img" %>
-        </div>
-
-        <div role="tabpanel" class="tab-pane" id="discount">
-          <div class="tab-text">
-            <h2>Xbox One S</h2>
-            <a href="#" class="btn btn-default">Read More</a>
-          </div>
-          <%= image_tag 'xbox_one_s.jpg', class: "slide-img" %>
-        </div>
-
-        <div role="tabpanel" class="tab-pane" id="premium">
-          <div class="tab-text">
-            <h2>Nintendo Switch</h2>
-            <a href="#" class="btn btn-default">Read More</a>
-          </div>
-          <%= image_tag 'nintendo_switch.jpg', class: "slide-img" %>
-        </div>
+        <%= image_tag 'ps4_pro.png', class: "slide-img" %>
       </div>
+
+      <div role="tabpanel" class="tab-pane" id="best">
+        <div class="tab-text">
+          <h2>Nintendo Classic</h2>
+          <a href="#" class="btn btn-default">Read More</a>
+        </div>
+        <%= image_tag 'nes_classic.png', class: "slide-img" %>
+      </div>
+
+      <div role="tabpanel" class="tab-pane" id="discount">
+        <div class="tab-text">
+          <h2>Xbox One S</h2>
+          <a href="#" class="btn btn-default">Read More</a>
+        </div>
+        <%= image_tag 'xbox_one_s.jpg', class: "slide-img" %>
+      </div>
+
+      <div role="tabpanel" class="tab-pane" id="premium">
+        <div class="tab-text">
+          <h2>Nintendo Switch</h2>
+          <a href="#" class="btn btn-default">Read More</a>
+        </div>
+        <%= image_tag 'nintendo_switch.jpg', class: "slide-img" %>
+      </div>
+    </div>
+</div>
+
+<section id="products">
+  <div class="row">
+    <% @products.each do |product| %>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <%= image_tag(product.image_url) %>
+          <div class="caption">
+            <h4 class="pull-right">
+              <%= "$#{product.price}" %>
+            </h4>
+            <h4><%= link_to "#{product.title}", product_path(product) %></h4>
+            <p><%= product.description %></p>
+          </div>
+        </div>
+      </div> 
+    <% end %>  
   </div>
-
-  <section id="products">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="thumbnail">
-          <%= image_tag 'ps4_pro.png' %>
-          <div class="caption">
-            <h4 class="pull-right">
-              $399.99
-            </h4>
-            <h4><%= link_to 'Playstation4 Pro', '#' %></h4>
-            <p>Explore vivid game worlds with rich visuals heightened by PS4 Pro. Support for faster frame rates delivers super-sharp action for select PS4™ games. Compatible with every PS4™ game. Play online with other PS4™ players with PlayStation® Plus.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="thumbnail">
-          <%= image_tag 'xbox_one_s.jpg' %>
-          <div class="caption">
-            <h4 class="pull-right">
-              $299.99
-            </h4>
-            <h4><%= link_to 'Xbox One S', '#' %></h4>
-            <p>Play the greatest games lineup, including Xbox 360 classics, on a 40% smaller console. Just don’t let its size fool you: with an internal power supply and up to 2TB of internal storage, the Xbox One S is the most advanced Xbox ever.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="thumbnail">
-          <%= image_tag 'nintendo_switch.jpg' %>
-          <div class="caption">
-            <h4 class="pull-right">
-              $299.99
-            </h4>
-            <h4><%= link_to 'Nintendo Switch', '#' %></h4>
-            <p>In addition to providing single and multiplayer thrills at home, the Nintendo Switch system also enables gamers to play the same title wherever, whenever and with whomever they choose. The mobility of a handheld is now added to the power of a home gaming system to enable unprecedented new video game play styles.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="thumbnail">
-          <%= image_tag 'nes_classic.png' %>
-          <div class="caption">
-            <h4 class="pull-right">
-              $59.99
-            </h4>
-            <h4><%= link_to 'Playstation4 Pro', '#' %></h4>
-            <p>The NES Classic Edition system is a miniaturized version of the groundbreaking NES, originally released in 1985. Just plug the NES Classic Edition into your TV, pick up that gray controller, and rediscover the joy of NES games.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="thumbnail">
-          <%= image_tag 'Sega_master_system.jpg' %>
-          <div class="caption">
-            <h4 class="pull-right">
-              $59.99
-            </h4>
-            <h4><%= link_to 'Sega Master System', '#' %></h4>
-            <p> SMS is a third-generation home video game console that was manufactured by Sega. It was originally released in 1985 as the Sega Mark III in Japan.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="thumbnail">
-          <%= image_tag 'Atari2600.png' %>
-          <div class="caption">
-            <h4 class="pull-right">
-              $39.99
-            </h4>
-            <h4><%= link_to 'Nintendo Classic', '#' %></h4>
-            <p>The Atari 2600 (or Atari VCS before 1982) is a home video game console released on September 11, 1977, by Atari, Inc. ... The 2600 was typically bundled with two joystick controllers, a conjoined pair of paddle controllers, and a game cartridge: initially Combat, and later Pac-Man.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</div> <!-- /container -->
+</section>
