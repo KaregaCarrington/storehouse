@@ -2,11 +2,7 @@ class HomeController < ApplicationController
   def index
     @products = Product.all
   end
-
-  def show
-    @post = Post.find(params[:id])
-  end
-
+  
   helper_method :resource_name, :resource, :devise_mapping
 
   def resource_name
