@@ -20,8 +20,8 @@
 
         <% else %>
 
-          <form class="form-inline">
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %> 
+        
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name), html:{class: "form-inline"} ) do |f| %> 
               <div class="form-group">
                 <%= f.label :email %>
                 <%= f.email_field :email, autofocus: true, class: 'form-control',  id: "login-field" %>
@@ -32,7 +32,7 @@
               </div>
                 <%= f.submit "Come in!", class: 'btn actions', id: "login-field" %>
             <% end %>
-          </form>
+          
         <% end %>  
       </div>
       <!-- where form ends -->
@@ -58,13 +58,13 @@
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <li class="active"><a href="<%= root_path %>">Home</a></li>
-          <li><a href="#">What's New</a></li>
-          <li><a href="#">Specials</a></li>
-          <li><a href="#">My Account</a></li>
+          <li><%= link_to 'Products', products_path %></li>
+          <li><%= link_to 'My Cart', cart_path %></li>
+          <li><%= link_to 'My Account', '#' %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <div>
-            <%= form_tag root_path, method: 'get', class: 'navbar-form' do %>
+            <%= form_tag products_path, method: 'get', class: 'navbar-form' do %>
               <p>
                 <%= text_field_tag :search, params[:search] %>
                 <%= submit_tag "Search", name: nil, class: 'btn btn-default' %>  

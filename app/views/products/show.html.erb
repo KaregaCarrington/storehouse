@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md-8">
       <div class="row">  
-        <div class="col-md-4">
+        <div class="col-md-4 thumbnail">
           <%= image_tag(@product.image_url, class: 'product-show-image') %>
         </div>
         <div class="col-md-8">
@@ -11,22 +11,15 @@
           <div><%= @product.price %></div>
           <hr>
 
-          <p>Quantity:
-            <select class="form-control">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select><br>
-            <a href="#" class="btn btn-success">Buy Now</a>  
+          <p>
+            <a href="/cart/<%= @product.id %>" class="btn btn-success">Add To Cart</a>  
           </p><br>
           <div class="panel panel-default">
             <div class="panel-heading">
               <h3 class="panel-title">Decsription</h3>
             </div>
             <div class="panel-body">
-              <%= @product.description %>
+             <span style="color: black;"><%= @product.description %></span>
             </div>
           </div>
         </div>
@@ -34,13 +27,7 @@
     </div>
 
     <div class="col-md-4">
-      <div class="list-group">
-        <a href="#" class="list-group-item">Books</a>
-        <a href="#" class="list-group-item">Clothing</a>
-        <a href="#" class="list-group-item">Music</a>
-        <a href="#" class="list-group-item">Electronics</a>
-        <a href="#" class="list-group-item">Studio Equipment</a>
-      </div>
+      <%= render 'layouts/categories' %>
     </div>
   </div>
 </section>

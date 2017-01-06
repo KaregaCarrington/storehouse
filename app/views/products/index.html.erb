@@ -1,0 +1,23 @@
+<section id="products">
+  <div class="row">
+    <div class="col-md-8">
+      <% @products.each do |product| %>
+        <div class="col-md-4">
+          <div class="thumbnail">
+            <%= image_tag(product.image_url) %>
+            <div class="caption">
+              <h4 class="pull-right">
+                <%= "$#{product.price}" %>
+              </h4>
+              <h4><%= link_to "#{product.title}", product_path(product) %></h4>
+              <p><%= product.description %></p>
+            </div>
+          </div>
+        </div> 
+      <% end %>  
+    </div>
+    <div class="col-md-4">
+      <%= render 'layouts/categories' %>
+    </div>
+  </div>
+</section>
